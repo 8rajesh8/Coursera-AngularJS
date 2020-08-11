@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myFirstApp">
+    <head>
+        <meta charset="utf-8">
+         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="app.js"></script>
+        <title>{{title}}</title>
+
+    </head>
+    <body>
+        <div ng-controller="control1">
+
+            <input type="text" ng-model="input_data" >
+
+            <button type="button" name="button" ng-click="checker()">Check If Too Much</button>
+            <div ng-show="!isEmpty" class="alert alert-success">{{message}}</div>
+            <div ng-show="isEmpty" class="alert alert-danger">Please enter data first</div>
+            <div>
+              {{message}}
+            </div>
+        </div>
+
+    </body>
+</html>
