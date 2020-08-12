@@ -5,19 +5,37 @@
          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
         <script src="app.js"></script>
         <title>{{title}}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     </head>
     <body>
         <div ng-controller="control1">
 
-            <input type="text" ng-model="input_data" >
+          <form class="container">
 
-            <button type="button" name="button" ng-click="checker()">Check If Too Much</button>
-            <div ng-show="!isEmpty" class="alert alert-success">{{message}}</div>
-            <div ng-show="isEmpty" class="alert alert-danger">Please enter data first</div>
-            <div>
-              {{message}}
+            <div class="form-group">
+
+                <div >
+                  <label for="firstInput">Item Checker</label>
+                  <input type="text" ng-model="input_data" id="firstInput" class="form-control" placeholder="Enter ',' separated items..">
+                </div>
+
             </div>
+
+            <div class="form-group text-center">
+              <div >
+                <button type="submit" name="button" ng-click="checker()" class="btn btn-primary ">Check If Too Much</button>
+              </div>
+            </div>
+
+
+          <div class="form-group ">
+
+            <div ng-show="error" class="alert alert-danger" >{{message}}</div>
+            <div ng-show="!error" class="alert alert-success">{{message}}</div>
+
+          </div>
+        </form>
         </div>
 
     </body>

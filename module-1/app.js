@@ -8,33 +8,37 @@
 
     base.controller('control1',function($scope){
 
-        $scope.input_data;
-        $scope.isEmpty;
-        $scope.message;
-
+        $scope.input_data='';
+        $scope.message='';
+        $scope.error=false;
 
 
         $scope.checker=function(){
 
           var str=$scope.input_data;
 
-          if(str.trim().length==0){
-            $scope.isEmpty=true;
+          if(str.trim().length === 0){
+
             $scope.message="Enter the data first..";
+            $scope.error=true;
           }
           else {
-            var parsing=str.split(",").filter(
+
+            var sooo=str.split(',');
+            var parsing=sooo.filter(
               function(i){
-                i.trim() !== '';
+                return i.trim() !== '';
               });
 
-              $scope.isEmpty=false;
 
               if(parsing.length <=3){
-                $scope.message="Enjoy";
+                $scope.message="Enjoy!";
+                $scope.error=false;
+
               }
               else {
-                $scope.message="Too Much..!";
+                $scope.message="Too much!";
+                $scope.error=true;
               }
           }
 
