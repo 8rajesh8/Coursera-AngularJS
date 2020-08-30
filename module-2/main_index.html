@@ -1,0 +1,41 @@
+<<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="ShoppingListCheckOff">
+  <head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+    <script src="main_app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" ng-controller='ToBuyController as fc'>
+
+          <ul>
+            <h2> To-Buy List</h2>
+            <li ng-repeat="toBuy in fc.displayToBuy">  {{toBuy.name}} <span class="badge badge-danger"> {{toBuy.qunatity}}</span>
+            <button type="button" name="button" ng-click="fc.buy($index)" class="btn-sm btn-success"><span class="glyphicon glyphicon-ok"></span> Buy</button></li>
+            <div ng-if="fc.displayToBuy.length == 0" class="text-success"><h3>Everything is bought!</h3></div>
+          </ul>
+
+        </div>
+
+        <div class="col-md-6" ng-controller='AlreadyBoughtController as bo'>
+
+          <ul>
+            <h2> You Bought</h2>
+            <li ng-repeat="bought in bo.displayBought" class="text-info"><h4>{{bought.qunatity}} {{bought.name}}
+              <span class="glyphicon glyphicon-ok text-success"></span></h4> </li>
+              <div ng-if="bo.displayBought.length == 0" class="p-3 mb-2 bg-info text-white">Nothing bought yet.</div>
+          </ul>
+
+
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
